@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muabaru - Makeup Artistry</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      line-height: 1.6;
+      background-color: #fff;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    ul {
+      list-style: none;
+    }
+    nav {
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 10px 0;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    nav ul li {
+      margin: 0 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      font-weight: 600;
+      font-size: 1em;
+    }
+    header {
+      margin-top: 0;
+      background-image: url('fotky/uvodni.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 90vh;
+      width: 100%;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+    }
+    .main-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 3em;
+      color: #333;
+      font-weight: 700;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    section {
+      padding: 80px 0;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #444;
+      font-weight: 700;
+    }
+    section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .about-content img {
+      width: 30%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .about-text {
+      flex: 1;
+      min-width: 300px;
+    }
+    .certificates {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .certificate-card {
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      width: 360px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    .certificate-card h4 {
+      margin-bottom: 10px;
+      font-size: 1.2em;
+      color: #a67c52;
+      font-weight: 600;
+    }
+    .portfolio-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+    .portfolio-images a img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    form label {
+      margin-top: 10px;
+      font-weight: 600;
+    }
+    form input, form textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+    }
+    form button {
+      margin-top: 20px;
+      padding: 12px;
+      border: none;
+      background: #a67c52;
+      color: #fff;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    form button:hover {
+      background: #8d643a;
+    }
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .contact-info {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .contact-info a {
+      display: block;
+      color: #a67c52;
+      font-weight: 600;
+      margin: 5px 0;
+    }
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 2.5em;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
+      .portfolio-images {
+        grid-template-columns: 1fr;
+      }
+      .card, .certificate-card {
+        width: 90%;
+      }
+      .about-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about-content img {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Domů</a></li>
+      <li><a href="#about">O mně</a></li>
+      <li><a href="#certifikaty">Certifikáty</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <header id="home"></header>
+
+  <div class="main-title">Barbora Semkovičová</div>
+
+  <section id="about">
+    <div class="container">
+      <h2>O mně</h2>
+      <div class="about-content">
+        <img src="fotky/omne1.jpg" alt="O mně 1">
+        <div class="about-text">
+          <p>
+            Ahoj, jmenuji se Barča a specializuji se na různé typy líčení a účesů. Jsem makeup artistka, která věří, že každý detail má svůj význam. Můj jemný a precizní styl spojuje eleganci a luxus s individuálním přístupem, kde vaše přání a jedinečnost jsou vždy na prvním místě. Díky mým bohatým zkušenostem se postarám o to, abyste se při každé příležitosti cítili krásně a sebevědomě.
+          </p>
+        </div>
+        <img src="fotky/omne2.jpg" alt="O mně 2">
+      </div>
+    </div>
+  </section>
+
+  <section id="certifikaty">
+    <div class="container">
+      <h2>Certifikáty</h2>
+      <div class="certificates">
+        <div class="certificate-card">
+          <h4>Certificate Make-Up Institute Prague</h4>
+          <p>Odborná příprava a osvědčená kvalita v oblasti vizážistiky.</p>
+        </div>
+        <div class="certificate-card">
+          <h4>Osvědčení o rekvalifikaci Vizážistka</h4>
+          <p>160 hodin praktického výcviku.</p>
+        </div>
+        <div class="certificate-card">
+          <h4>Osvědčení o profesní kvalifikaci Vizážistka</h4>
+          <p>Národní kvalifikace (69-035-M) – nejvyšší vzdělání v oboru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="container">
+      <h2>Portfolio</h2>
+      <p>Ukázky mé práce – od svatebního líčení po tematická focení.</p>
+      <div class="portfolio-images">
+        <!-- Změna: obrázky nyní ve <a> pro Lightbox -->
+        <a href="./fotky/portfolio1.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio1.jpg" alt="Portfolio 1"></a>
+        <a href="./fotky/portfolio2.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio2.jpg" alt="Portfolio 2"></a>
+        <a href="./fotky/portfolio3.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio3.jpg" alt="Portfolio 3"></a>
+        <a href="./fotky/portfolio4.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio4.jpg" alt="Portfolio 4"></a>
+        <a href="./fotky/portfolio5.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio5.jpg" alt="Portfolio 5"></a>
+        <a href="./fotky/portfolio6.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio6.jpg" alt="Portfolio 6"></a>
+        <a href="./fotky/portfolio7.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio7.jpg" alt="Portfolio 7"></a>
+        <a href="./fotky/portfolio8.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio8.jpg" alt="Portfolio 8"></a>
+        <a href="./fotky/portfolio9.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio9.jpg" alt="Portfolio 9"></a>
+        <a href="./fotky/portfolio10.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio10.jpg" alt="Portfolio 10"></a>
+        <a href="./fotky/portfolio11.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio11.jpg" alt="Portfolio 11"></a>
+        <a href="./fotky/portfolio12.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio12.jpg" alt="Portfolio 12"></a>
+        <a href="./fotky/portfolio13.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio13.jpg" alt="Portfolio 13"></a>
+        <a href="./fotky/portfolio14.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio14.jpg" alt="Portfolio 14"></a>
+        <a href="./fotky/portfolio15.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio15.jpg" alt="Portfolio 15"></a>
+        <a href="./fotky/portfolio16.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio16.jpg" alt="Portfolio 16"></a>
+        <a href="./fotky/portfolio17.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio17.jpg" alt="Portfolio 17"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Kontakt</h2>
+      <form>
+        <label for="name">Jméno:</label>
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="message">Zpráva:</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+
+        <button type="submit">Odeslat</button>
+      </form>
+      <div class="contact-info">
+<a href="tel:+420731199864">📞 +420 731 199 864</a>
+        <a href="https://www.instagram.com/Mua_baru" target="_blank">📸 Instagram: @Mua_baru</a>
+        <a href="https://www.facebook.com/profile.php?id=61574002201565" target="_blank">📘 Facebook: Muabaru</a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Barbora Semkovičová
+  </footer>
+
+  <!-- Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
+
