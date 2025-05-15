@@ -1,113 +1,55 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Muabaru - Makeup Artistry</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
-  <!-- Lightbox CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+  <meta name="description" content="Make-up artistka Barbora Semkovičová – profesionální líčení pro svatby, focení a speciální příležitosti.">
+  <link rel="icon" href="fotky/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Open Sans', sans-serif;
-      color: #333;
-      line-height: 1.6;
-      background-color: #fff;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    ul {
-      list-style: none;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Open Sans', sans-serif; color: #333; background-color: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
     nav {
-      background: rgba(0, 0, 0, 0.7);
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 10px 0;
+      background: rgba(0, 0, 0, 0.7); position: fixed; top: 0; width: 100%;
+      z-index: 1000; padding: 10px 0; transition: transform 0.3s ease;
     }
-    nav ul {
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li {
-      margin: 0 20px;
-    }
-    nav ul li a {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1em;
-    }
+    .nav-hidden { transform: translateY(-100%); }
+    nav ul { display: flex; justify-content: center; flex-wrap: wrap; }
+    nav ul li { margin: 0 20px; }
+    nav ul li a { color: #fff; font-weight: 600; font-size: 1em; }
     header {
-      margin-top: 0;
       background-image: url('fotky/uvodni.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 90vh;
-      width: 100%;
+      background-size: cover; background-position: center; height: 90vh;
       position: relative;
     }
     header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3);
     }
     .main-title {
-      text-align: center;
-      margin: 40px 0 20px;
-      font-size: 3em;
-      color: #333;
-      font-weight: 700;
+      text-align: center; margin: 40px 0 20px;
+      font-size: 3em; color: #333; font-weight: 700;
     }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    section {
-      padding: 80px 0;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 80px 0; }
     section h2 {
-      text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 20px;
-      color: #444;
-      font-weight: 700;
-    }
-    section p {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 20px;
+      text-align: center; font-size: 2.5em;
+      margin-bottom: 20px; color: #444; font-weight: 700;
     }
     .about-content {
-      display: flex;
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
     }
     .about-content img {
-      width: 30%;
-      border-radius: 10px;
+      width: 30%; border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .about-text {
-      flex: 1;
-      min-width: 300px;
-    }
+    .about-text { flex: 1; min-width: 300px; }
+
     .certificates {
       display: flex;
       flex-wrap: wrap;
@@ -129,98 +71,74 @@
       color: #a67c52;
       font-weight: 600;
     }
+
+    .portfolio-category h3 {
+      text-align: center; margin-top: 40px; font-size: 1.8em; color: #a67c52;
+    }
     .portfolio-images {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      justify-items: center;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+      margin-top: 20px;
     }
     .portfolio-images a img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%; max-width: 300px; height: 300px; object-fit: cover;
+      border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
+    .portfolio-images a img:hover {
+      transform: scale(1.03);
+    }
+
     form {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
+      max-width: 600px; margin: 0 auto;
+      display: flex; flex-direction: column;
     }
-    form label {
-      margin-top: 10px;
-      font-weight: 600;
-    }
+    form label { margin-top: 10px; font-weight: 600; }
     form input, form textarea {
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1em;
+      padding: 10px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 4px; font-size: 1em;
     }
     form button {
-      margin-top: 20px;
-      padding: 12px;
-      border: none;
-      background: #a67c52;
-      color: #fff;
-      font-size: 1em;
-      cursor: pointer;
-      border-radius: 4px;
+      margin-top: 20px; padding: 12px;
+      border: none; background: #a67c52; color: #fff;
+      font-size: 1em; cursor: pointer; border-radius: 4px;
     }
-    form button:hover {
-      background: #8d643a;
-    }
+    form button:hover { background: #8d643a; }
+
     footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 20px 0;
+      background: #333; color: #fff;
+      text-align: center; padding: 20px 0;
     }
-    .contact-info {
-      margin-top: 30px;
-      text-align: center;
-    }
+    .contact-info { margin-top: 30px; text-align: center; }
     .contact-info a {
-      display: block;
-      color: #a67c52;
-      font-weight: 600;
-      margin: 5px 0;
+      display: block; color: #a67c52; font-weight: 600; margin: 5px 0;
     }
+    blockquote {
+      font-style: italic;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 800px;
+      color: #555;
+    }
+
     @media (max-width: 768px) {
-      .main-title {
-        font-size: 2.5em;
-      }
-      nav ul {
-        flex-direction: column;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
-      .portfolio-images {
-        grid-template-columns: 1fr;
-      }
-      .card, .certificate-card {
-        width: 90%;
-      }
-      .about-content {
-        flex-direction: column;
-        text-align: center;
-      }
-      .about-content img {
-        width: 80%;
-      }
+      .main-title { font-size: 2em; margin-top: 80px; }
+      nav ul { flex-direction: column; align-items: center; }
+      nav ul li { margin: 10px 0; }
+      .about-content { flex-direction: column; text-align: center; }
+      .about-content img { width: 80%; }
+      form input, form textarea { width: 100%; }
     }
   </style>
 </head>
 <body>
+
   <nav>
     <ul>
       <li><a href="#home">Domů</a></li>
       <li><a href="#about">O mně</a></li>
       <li><a href="#certifikaty">Certifikáty</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reference">Reference</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
   </nav>
@@ -236,7 +154,9 @@
         <img src="fotky/omne1.jpg" alt="O mně 1">
         <div class="about-text">
           <p>
-            Ahoj, jmenuji se Barča a specializuji se na různé typy líčení a účesů. Jsem makeup artistka, která věří, že každý detail má svůj význam. Můj jemný a precizní styl spojuje eleganci a luxus s individuálním přístupem, kde vaše přání a jedinečnost jsou vždy na prvním místě. Díky mým bohatým zkušenostem se postarám o to, abyste se při každé příležitosti cítili krásně a sebevědomě.
+            Ahoj, jmenuji Barča a jsem make-up artistka, která propojuje jemnost s důrazem na detail. Specializuji se na přirozené i výrazné líčení pro focení, svatby i individuální klientky.Moje práce je pro mě vášní i posláním – pomáhám ženám cítit se krásně, sebevědomě a autenticky.Věřím, že každá žena má svou jedinečnost, kterou líčením jen podtrhuji – ne překrývám. Zakládám si na čistotě, preciznosti a klidném přístupu. Mým cílem je vytvořit atmosféru, ve které se cítíš uvolněně a můžeš být sama sebou.
+Absolvovala jsem rekvalifikační kurz a profesní kvalifikaci vizážistky s národní platností. Neustále se vzdělávám, sleduji trendy a rozšiřuji své portfolio díky focení, spolupracím a vlastní iniciativě.
+Líčím nevěsty, modelky, klientky na focení, ale i ženy, které si chtějí dopřát den pro sebe. Spolupracuji s fotografy a kreativními týmy na různorodých projektech – od elegantních portrétů po svatební editoriály.
           </p>
         </div>
         <img src="fotky/omne2.jpg" alt="O mně 2">
@@ -249,68 +169,83 @@
       <h2>Certifikáty</h2>
       <div class="certificates">
         <div class="certificate-card">
-          <h4>Certificate Make-Up Institute Prague</h4>
-          <p>Odborná příprava a osvědčená kvalita v oblasti vizážistiky.</p>
+          <h4>Make-Up Institute Prague</h4>
+          <p>Odborná příprava a kvalita v oblasti vizážistiky.</p>
         </div>
         <div class="certificate-card">
-          <h4>Osvědčení o rekvalifikaci Vizážistka</h4>
+          <h4>Osvědčení o rekvalifikaci</h4>
           <p>160 hodin praktického výcviku.</p>
         </div>
         <div class="certificate-card">
-          <h4>Osvědčení o profesní kvalifikaci Vizážistka</h4>
-          <p>Národní kvalifikace (69-035-M) – nejvyšší vzdělání v oboru.</p>
+          <h4>Profesní kvalifikace Vizážistka</h4>
+          <p>Národní kvalifikace 69-035-M.</p>
         </div>
       </div>
     </div>
   </section>
-
   <section id="portfolio">
     <div class="container">
       <h2>Portfolio</h2>
-      <p>Ukázky mé práce – od svatebního líčení po tematická focení.</p>
-      <div class="portfolio-images">
-        <!-- Změna: obrázky nyní ve <a> pro Lightbox -->
-        <a href="./fotky/portfolio1.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio1.jpg" alt="Portfolio 1"></a>
-        <a href="./fotky/portfolio2.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio2.jpg" alt="Portfolio 2"></a>
-        <a href="./fotky/portfolio3.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio3.jpg" alt="Portfolio 3"></a>
-        <a href="./fotky/portfolio4.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio4.jpg" alt="Portfolio 4"></a>
-        <a href="./fotky/portfolio5.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio5.jpg" alt="Portfolio 5"></a>
-        <a href="./fotky/portfolio6.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio6.jpg" alt="Portfolio 6"></a>
-        <a href="./fotky/portfolio7.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio7.jpg" alt="Portfolio 7"></a>
-        <a href="./fotky/portfolio8.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio8.jpg" alt="Portfolio 8"></a>
-        <a href="./fotky/portfolio9.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio9.jpg" alt="Portfolio 9"></a>
-        <a href="./fotky/portfolio10.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio10.jpg" alt="Portfolio 10"></a>
-        <a href="./fotky/portfolio11.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio11.jpg" alt="Portfolio 11"></a>
-        <a href="./fotky/portfolio12.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio12.jpg" alt="Portfolio 12"></a>
-        <a href="./fotky/portfolio13.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio13.jpg" alt="Portfolio 13"></a>
-        <a href="./fotky/portfolio14.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio14.jpg" alt="Portfolio 14"></a>
-        <a href="./fotky/portfolio15.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio15.jpg" alt="Portfolio 15"></a>
-        <a href="./fotky/portfolio16.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio16.jpg" alt="Portfolio 16"></a>
-        <a href="./fotky/portfolio17.jpg" data-lightbox="portfolio"><img src="./fotky/portfolio17.jpg" alt="Portfolio 17"></a>
+      <div class="portfolio-category">
+
+        <h3>Svatební tématika</h3>
+        <div class="portfolio-images">
+          <a href="fotky/portfolio1.jpg" data-lightbox="svatba"><img src="fotky/portfolio1.jpg" alt="Portfolio 1"></a>
+          <a href="fotky/portfolio2.jpg" data-lightbox="svatba"><img src="fotky/portfolio2.jpg" alt="Portfolio 2"></a>
+          <a href="fotky/portfolio3.jpg" data-lightbox="svatba"><img src="fotky/portfolio3.jpg" alt="Portfolio 3"></a>
+          <a href="fotky/portfolio4.jpg" data-lightbox="svatba"><img src="fotky/portfolio4.jpg" alt="Portfolio 4"></a>
+          <a href="fotky/portfolio10.jpg" data-lightbox="svatba"><img src="fotky/portfolio10.jpg" alt="Portfolio 10"></a>
+          <a href="fotky/portfolio11.jpg" data-lightbox="svatba"><img src="fotky/portfolio11.jpg" alt="Portfolio 11"></a>
+          <a href="fotky/portfolio12.jpg" data-lightbox="svatba"><img src="fotky/portfolio12.jpg" alt="Portfolio 12"></a>
+          <a href="fotky/portfolio13.jpg" data-lightbox="svatba"><img src="fotky/portfolio13.jpg" alt="Portfolio 13"></a>
+        </div>
+
+        <h3>Portréty</h3>
+        <div class="portfolio-images">
+          <a href="fotky/portfolio14.jpg" data-lightbox="portrety"><img src="fotky/portfolio14.jpg" alt="Portfolio 14"></a>
+          <a href="fotky/portfolio15.jpg" data-lightbox="portrety"><img src="fotky/portfolio15.jpg" alt="Portfolio 15"></a>
+          <a href="fotky/portfolio16.jpg" data-lightbox="portrety"><img src="fotky/portfolio16.jpg" alt="Portfolio 16"></a>
+          <a href="fotky/portfolio17.jpg" data-lightbox="portrety"><img src="fotky/portfolio17.jpg" alt="Portfolio 17"></a>
+          <a href="fotky/portfolio18.jpg" data-lightbox="portrety"><img src="fotky/portfolio18.jpg" alt="Portfolio 18"></a>
+        </div>
+
+        <h3>Extrémní make-up</h3>
+        <div class="portfolio-images">
+          <a href="fotky/portfolio8.jpg" data-lightbox="extrem"><img src="fotky/portfolio8.jpg" alt="Portfolio 8"></a>
+          <a href="fotky/portfolio9.jpg" data-lightbox="extrem"><img src="fotky/portfolio9.jpg" alt="Portfolio 9"></a>
+          <a href="fotky/portfolio19.jpg" data-lightbox="extrem"><img src="fotky/portfolio19.jpg" alt="Portfolio 19"></a>
+        </div>
+
       </div>
+    </div>
+  </section>
+  <section id="reference">
+    <div class="container">
+      <h2>Reference</h2>
+      <blockquote>"Barča odvedla skvělou práci s vlasy i make-upem.👌Neváhala jsem ani minutu a nechala jí volnou ruku a udělala jsem dobře. ☺️ Přesně vystihla, co mi sluší a vytvořila vzhled, ve kterém jsem se cítila krásně a přirozeně. 🥰Navíc jsme si stihly skvěle popovídat. 😇Výsledné fotky mluví za vše. ❤️❤️❤️
+Děkuju za krásný zážitek a vřele doporučuji!
+😍👌
+Vynikající práce-Krásné výsledky" – Marie</blockquote>
+<blockquote>"Při úpravách fotografií jsem si říkal: "Proboha, ta ženská má pleť,kterou snad tesali andělé... tady není nic třeba retušovat. To snad není možné." A pak mi došlo, že ji líčila Barča. Neskutečná práce - vůbec nevypadá, že by byla nalíčená - vypadá úplně přirozeně, ale dokonale" – fotograf Pavel</blockquote>
     </div>
   </section>
 
   <section id="contact">
     <div class="container">
       <h2>Kontakt</h2>
-      <form>
+      <form action="https://formspree.io/f/xwpoawod" method="POST">
         <label for="name">Jméno:</label>
-        <input type="text" id="name" name="name">
-
+        <input type="text" id="name" name="name" required>
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email">
-
+        <input type="email" id="email" name="email" required>
         <label for="message">Zpráva:</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-
+        <textarea id="message" name="message" rows="5" required></textarea>
         <button type="submit">Odeslat</button>
       </form>
       <div class="contact-info">
-<a href="tel:+420731199864">📞 +420 731 199 864</a>
+        <a href="tel:+420731199864">📞 +420 731 199 864</a>
         <a href="https://www.instagram.com/Mua_baru" target="_blank">📸 Instagram: @Mua_baru</a>
         <a href="https://www.facebook.com/profile.php?id=61574002201565" target="_blank">📘 Facebook: Muabaru</a>
-
       </div>
     </div>
   </section>
@@ -319,8 +254,20 @@
     © 2025 Barbora Semkovičová
   </footer>
 
-  <!-- Lightbox JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <script>
+    let prevScroll = window.scrollY;
+    const nav = document.querySelector("nav");
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > prevScroll) {
+        nav.classList.add("nav-hidden");
+      } else {
+        nav.classList.remove("nav-hidden");
+      }
+      prevScroll = currentScroll;
+    });
+  </script>
+
 </body>
 </html>
-
